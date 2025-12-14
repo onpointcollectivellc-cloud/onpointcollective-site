@@ -90,12 +90,19 @@
                 We are dedicated to elevating conceptual art acquisition to the level of strategic wealth management. Our model is built on confidentiality, rigorous due diligence, and market-leading expertise.
             </p>
             <div class="grid md:grid-cols-3 gap-10">
-                <div class="md:col-span-2">
-                    <p style="font-size: 18px; color: #C0C0C0; background-color: #0d0d0d;" class="opacity-90 leading-relaxed p-8 rounded-2xl border border-gray-800 h-full">
-                        On Point Collective LLC is a **specialized creative brokerage firm** dedicated exclusively to connecting high-net-worth collectors with museum-quality conceptual art assets. 
+                <div class="md:col-span-2 space-y-6">
+                    <p style="font-size: 18px; color: #C0C0C0; background-color: #0d0d0d;" class="opacity-90 leading-relaxed p-8 rounded-2xl border border-gray-800">
+                        On Point Collective LLC is a **specialized creative brokerage firm** dedicated exclusively to connecting high-net-worth collectors with museum-quality conceptual art assets. We primarily serve the **NY, NJ, and PA metro regions, alongside our strategic base in Charlotte, NC.**
                         <br><br>
                         Our expertise lies in the valuation, provenance verification, and discreet sourcing of works that serve as long-term investment vehicles. We operate as trusted, confidential advisors, facilitating high-value transactions and curating collections for investment longevity and cultural impact. Our mission is to transform art acquisition from a passion to a strategic asset class.
                     </p>
+                    <div class="p-6 rounded-2xl flex items-center gap-4" style="background-color: #1a1a1a; border: 1px solid #B8860B;">
+                        <span style="font-size: 32px; color: #B8860B;">🏙️</span>
+                        <div>
+                            <p style="font-size: 20px; color: #B8860B;" class="font-bold">Exclusive Charlotte Sky Lounge</p>
+                            <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80">Our Dilworth-based Sky Lounge provides a private, upscale venue for asset viewing, exclusive client events, and discreet contract finalization.</p>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="md:col-span-1 space-y-6">
@@ -249,45 +256,4 @@
               }
             }
           ],
-          borderables: [],
-          fontEditable: {
-            get: () => config.font_family || defaultConfig.font_family,
-            set: (value) => {
-              config.font_family = value;
-              window.elementSdk.setConfig({ font_family: value });
-            }
-          },
-          fontSizeable: {
-            get: () => config.font_size || defaultConfig.font_size,
-            set: (value) => {
-              config.font_size = value;
-              window.elementSdk.setConfig({ font_size: value });
-            }
-          }
-        };
-      }
-
-      function mapToEditPanelValues(config) {
-        return new Map([
-          ["site_title", config.site_title || defaultConfig.site_title],
-          ["tagline", config.tagline || defaultConfig.tagline],
-          ["hero_title", config.hero_title || defaultConfig.hero_title],
-          ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
-          ["about_title", config.about_title || defaultConfig.about_title],
-          ["about_text", config.about_text || defaultConfig.about_text],
-          ["services_title", config.services_title || defaultConfig.services_title],
-          ["contact_title", config.contact_title || defaultConfig.contact_title],
-          ["contact_text", config.contact_text || defaultConfig.contact_text]
-        ]);
-      }
-
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
-      });
-    }
-  </script>
- </body>
-</html>
+          borderables
