@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consign Artwork | On Point Collective LLC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base styles from your existing site */
+        body { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; height: 100%; }
+        /* Custom Styles for Form Elements */
+        .form-input {
+            background-color: #1a1a1a; /* Darker than body, lighter than black */
+            color: #C0C0C0;
+            border: 1px solid #333333;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #B8860B; /* Gold on focus */
+            box-shadow: 0 0 0 1px #B8860B;
+        }
+        .form-label {
+            color: #C0C0C0;
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .file-upload-label {
+            cursor: pointer;
+            background-color: #333333;
+            color: #C0C0C0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        .file-upload-label:hover {
+            background-color: #4a4a4a;
+        }
+        .gold-line {
+            border-top: 2px solid #B8860B;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="h-full overflow-auto" style="background-color: #000000; color: #C0C0C0; font-family: Inter, system-ui, -apple-system, sans-serif;">
+
+    <div id="app" class="w-full min-h-full">
+
+        <nav style="background-color: #0d0d0d; border-bottom: 1px solid rgba(192,192,192,0.1);" class="sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h1 style="font-size: 24px; color: #C0C0C0;" class="font-bold">On Point Collective LLC</h1>
+                        <p style="font-size: 13.6px; color: #B8860B;" class="opacity-90 mt-1">Conceptual Asset Consignment</p>
+                    </div>
+                    <a href="index.html" style="font-size: 16px; color: #B8860B;" class="hover:text-opacity-80 transition-opacity">Return to Main Site</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="max-w-4xl mx-auto py-16 px-6">
+            <header class="text-center mb-12">
+                <h2 style="font-size: 36px; color: #B8860B;" class="font-extrabold mb-4">Conceptual Artwork Intake</h2>
+                <p style="font-size: 18px; color: #C0C0C0;" class="opacity-80">Please provide detailed information for your investment-grade conceptual asset ($10K+ floor). All data is strictly confidential.</p>
+            </header>
+
+            <form action="/submit-consign-form" method="POST" enctype="multipart/form-data" class="space-y-10 p-8 rounded-xl" style="background-color: #0d0d0d; border: 1px solid #333333;">
+
+                <section class="space-y-6">
+                    <h3 style="color: #B8860B;" class="text-2xl font-bold border-b border-gray-700 pb-3">1. Asset Identification</h3>
+                    
+                    <div>
+                        <label for="artworkTitle" class="form-label">Artwork Title <span style="color:#B8860B;">*</span></label>
+                        <input type="text" id="artworkTitle" name="artworkTitle" class="form-input" required>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="artistName" class="form-label">Artist Name <span style="color:#B8860B;">*</span></label>
+                            <input type="text" id="artistName" name="artistName" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="yearCreation" class="form-label">Year of Creation <span style="color:#B8860B;">*</span></label>
+                            <input type="number" id="yearCreation" name="yearCreation" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="mediumMaterials" class="form-label">Medium / Materials (Detailed) <span style="color:#B8860B;">*</span></label>
+                        <textarea id="mediumMaterials" name="mediumMaterials" rows="3" class="form-input" required placeholder="e.g., Neon Installation with Digital Timer; Ink on found paper collage."></textarea>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="dimensions" class="form-label">Dimensions (H x W x D, include units) <span style="color:#B8860B;">*</span></label>
+                            <input type="text" id="dimensions" name="dimensions" class="form-input" required placeholder="e.g., 60 in x 48 in x 2 in">
+                        </div>
+                        <div>
+                            <label for="desiredPrice" class="form-label">Desired Selling Price (USD) <span style="color:#B8860B;">*</span></label>
+                            <input type="number" id="desiredPrice" name="desiredPrice" class="form-input" required min="10000" placeholder="Minimum $10,000 USD">
+                            <p class="mt-2 text-sm opacity-60">Must meet the $10K+ floor.</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="currentLocation" class="form-label">Current Location (City, State/Country) <span style="color:#B8860B;">*</span></label>
+                        <input type="text" id="currentLocation" name="currentLocation" class="form-input" required>
+                    </div>
+                </section>
+                
+                <hr class="gold-line">
+
+                <section class="space-y-6">
+                    <h3 style="color: #B8860B;" class="text-2xl font-bold border-b border-gray-700 pb-3">2. Provenance and Legal Verification</h3>
+                    
+                    <div>
+                        <label for="acquisitionSource" class="form-label">Acquisition Date and Source <span style="color:#B8860B;">*</span></label>
+                        <textarea id="acquisitionSource" name="acquisitionSource" rows="3" class="form-input" required placeholder="e.g., Purchased from Sotheby's, May 2019; Acquired directly from Artist Studio, 2015."></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="exhibitionHistory" class="form-label">Exhibition History / Publications</label>
+                        <textarea id="exhibitionHistory" name="exhibitionHistory" rows="3" class="form-input" placeholder="List any major shows or publications (optional, but highly valuable)."></textarea>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="coaStatus" class="form-label">Certificate of Authenticity (COA) Status <span style="color:#B8860B;">*</span></label>
+                            <select id="coaStatus" name="coaStatus" class="form-input" required>
+                                <option value="">Select Status</option>
+                                <option value="available">Available (In hand)</option>
+                                <option value="pending">Pending Documentation</option>
+                                <option value="none">None Available</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Ownership Status <span style="color:#B8860B;">*</span></label>
+                            <div class="flex space-x-6 mt-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="ownershipStatus" value="sole" required class="text-white bg-gray-700 border-gray-600 focus:ring-offset-gray-800 focus:ring-2 focus:ring-B8860B" style="accent-color: #B8860B;">
+                                    <span class="ml-2">Sole, Legal Owner</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="ownershipStatus" value="other" required class="text-white bg-gray-700 border-gray-600 focus:ring-offset-gray-800 focus:ring-2 focus:ring-B8860B" style="accent-color: #B8860B;">
+                                    <span class="ml-2">Joint Ownership/Estate</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="form-label">Legal Restrictions/Liens <span style="color:#B8860B;">*</span></label>
+                        <div class="flex space-x-6 mt-2">
+                            <label class="flex items-center">
+                                <input type="radio" name="legalLiens" value="no" required class="text-white bg-gray-700 border-gray-600 focus:ring-offset-gray-800 focus:ring-2 focus:ring-B8860B" style="accent-color: #B8860B;">
+                                <span class="ml-2">None</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="legalLiens" value="yes" required class="text-white bg-gray-700 border-gray-600 focus:ring-offset-gray-800 focus:ring-2 focus:ring-B8860B" style="accent-color: #B8860B;">
+                                <span class="ml-2">Yes (Please detail in Notes)</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="gold-line">
+                
+                <section class="space-y-6">
+                    <h3 style="color: #B8860B;" class="text-2xl font-bold border-b border-gray-700 pb-3">3. Documentation</h3>
+
+                    <p class="opacity-80 text-sm">Please upload high-resolution images. Max file size: 5MB per file.</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <label for="primaryImage" class="form-label">Primary Asset Image <span style="color:#B8860B;">*</span></label>
+                            <label for="primaryImage" class="file-upload-label">
+                                <span id="primaryFileName">Upload File (Required)</span>
+                            </label>
+                            <input type="file" id="primaryImage" name="primaryImage" accept="image/*" class="hidden" required onchange="document.getElementById('primaryFileName').textContent = this.files[0].name">
+                        </div>
+                        <div>
+                            <label for="secondaryImage" class="form-label">Secondary/Detail Image</label>
+                            <label for="secondaryImage" class="file-upload-label">
+                                <span id="secondaryFileName">Upload File (Optional)</span>
+                            </label>
+                            <input type="file" id="secondaryImage" name="secondaryImage" accept="image/*" class="hidden" onchange="document.getElementById('secondaryFileName').textContent = this.files[0].name">
+                        </div>
+                        <div>
+                            <label for="coaUpload" class="form-label">COA/Documentation (PDF/Image)</label>
+                            <label for="coaUpload" class="file-upload-label">
+                                <span id="coaFileName">Upload File (Optional)</span>
+                            </label>
+                            <input type="file" id="coaUpload" name="coaUpload" accept="image/*, application/pdf" class="hidden" onchange="document.getElementById('coaFileName').textContent = this.files[0].name">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="conditionSummary" class="form-label">Condition Report Summary <span style="color:#B8860B;">*</span></label>
+                        <textarea id="conditionSummary" name="conditionSummary" rows="4" class="form-input" required placeholder="e.g., Excellent, professional storage. No visible damage or restoration."></textarea>
+                    </div>
+                </section>
+
+                <hr class="gold-line">
+
+                <section class="space-y-6">
+                    <h3 style="color: #B8860B;" class="text-2xl font-bold border-b border-gray-700 pb-3">4. Consignor Details</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="consignorName" class="form-label">Full Name <span style="color:#B8860B;">*</span></label>
+                            <input type="text" id="consignorName" name="consignorName" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="email" class="form-label">Email Address (Confidential) <span style="color:#B8860B;">*</span></label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                         <div>
+                            <label for="phone" class="form-label">Phone Number (Optional)</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+                        <div>
+                             <label for="howHeard" class="form-label">How did you hear about us?</label>
+                            <select id="howHeard" name="howHeard" class="form-input">
+                                <option value="">Select an Option</option>
+                                <option value="referral">Client or Industry Referral</option>
+                                <option value="instagram">Instagram (@ONPOINTCOLLECTIVE)</option>
+                                <option value="search">Search Engine (Google, etc.)</option>
+                                <option value="media">Art Media/Publication</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="discretionaryNotes" class="form-label">Discretionary Notes / Special Instructions</label>
+                        <textarea id="discretionaryNotes" name="discretionaryNotes" rows="3" class="form-input" placeholder="e.g., Requires sale completion by Q2 2026; Only available for viewings in Charlotte Sky Lounge."></textarea>
+                    </div>
+                </section>
+                
+                <hr class="gold-line">
+
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <input type="checkbox" id="agreement" name="agreement" required class="mt-1" style="accent-color: #B8860B;">
+                        <label for="agreement" class="ml-3 text-sm" style="color: #C0C0C0;">
+                            I understand that submitting this form does not guarantee acceptance into the On Point Collective LLC consignment program. I acknowledge and accept the **70/30 Consignment Model** and affirm that the information provided regarding asset provenance and ownership is accurate and truthful to the best of my knowledge. <span style="color:#B8860B;">*</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" style="background-color: #B8860B; color: #000000; font-size: 18px;" class="w-full py-4 rounded-full font-bold hover:bg-opacity-90 transition-opacity">
+                        Submit Confidential Intake Form
+                    </button>
+                    <p class="text-center text-sm opacity-60 mt-3">A broker will contact you within 48 business hours.</p>
+                </div>
+
+            </form>
+        </div>
+        
+        <footer class="py-6 px-6 text-center mt-10" style="background-color: #0d0d0d; border-top: 1px solid rgba(192,192,192,0.1);">
+            <p style="font-size: 14.4px; color: #C0C0C0;" class="opacity-60">© 2025 On Point Collective LLC. All rights reserved. | Confidentiality Assured</p>
+        </footer>
+    </div>
+</body>
+</html>
