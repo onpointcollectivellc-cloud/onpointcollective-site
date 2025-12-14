@@ -7,6 +7,7 @@
     <script src="/_sdk/element_sdk.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* CSS Reset for consistent browser spacing */
         body {
             box-sizing: border-box;
         }
@@ -17,6 +18,7 @@
             height: 100%;
         }
         
+        /* Keyframe Animation for fade-in effect */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -32,12 +34,12 @@
             animation: fadeInUp 0.8s ease-out forwards;
         }
         
+        /* Navigation Link Hover Effect */
         .nav-link {
             position: relative;
             transition: color 0.3s ease;
         }
         
-        /* Changed accent color to a deeper gold/bronze #B8860B */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -45,7 +47,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: #B8860B; 
+            background-color: #B8860B; /* Deep Gold/Bronze Accent */
             transition: width 0.3s ease;
         }
         
@@ -53,6 +55,7 @@
             width: 100%;
         }
         
+        /* Service Card Hover Effect */
         .service-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -86,71 +89,4 @@
         <div class="max-w-4xl mx-auto text-center fade-in-up">
             <h2 style="font-size: 48px; color: #B8860B;" class="font-extrabold mb-6 leading-tight">Sourcing Conceptual Assets with Provenance.</h2>
             <p style="font-size: 20px; color: #C0C0C0;" class="opacity-80 mb-10 max-w-2xl mx-auto">Connecting High-Net-Worth Collectors with Exclusive Works. Floor Value $10K+.</p>
-            <a href="consign.html" style="background-color: #B8860B; font-size: 16px; color: #000000;" class="inline-block px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition-opacity"> Explore Consignment </a>
-        </div>
-    </section>
-
-    <section id="about" class="py-16 md:py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h3 style="font-size: 44px; color: #C0C0C0;" class="font-extrabold mb-4 text-center">Our Firm Profile: The Brokerage Advantage</h3>
-            <p style="font-size: 20px; color: #C0C0C0;" class="opacity-80 mb-16 text-center max-w-3xl mx-auto">
-                We are dedicated to elevating conceptual art acquisition to the level of strategic wealth management. Our model is built on confidentiality, rigorous due diligence, and market-leading expertise.
-            </p>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="md:col-span-2 space-y-6">
-                    <p style="font-size: 18px; color: #C0C0C0; background-color: #0d0d0d;" class="opacity-90 leading-relaxed p-8 rounded-2xl border border-gray-800">
-                        On Point Collective LLC is a specialized creative brokerage firm dedicated exclusively to connecting high-net-worth collectors with museum-quality conceptual art assets. We primarily serve the NY, NJ, and PA metro regions, alongside our strategic base in Charlotte, NC.
-                        <br><br>
-                        Our expertise lies in the valuation, provenance verification, and discreet sourcing of works that serve as long-term investment vehicles. We operate as trusted, confidential advisors, facilitating high-value transactions and curating collections for investment longevity and cultural impact. Our mission is to transform art acquisition from a passion to a strategic asset class.
-                    </p>
-                    <div class="p-6 rounded-2xl flex items-center gap-4" style="background-color: #1a1a1a; border: 1px solid #B8860B;">
-                        <span style="font-size: 32px; color: #B8860B;">🏙️</span>
-                        <div>
-                            <p style="font-size: 20px; color: #B8860B;" class="font-bold">Exclusive Charlotte Sky Lounge</p>
-                            <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80">Our Dilworth-based Sky Lounge provides a private, upscale venue for asset viewing, exclusive client events, and discreet contract finalization.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-1 space-y-6">
-                    <div class="p-6 rounded-2xl" style="background-color: #1a1a1a; border-left: 4px solid #B8860B;">
-                        <p style="font-size: 24px; color: #B8860B;" class="font-bold mb-2">Exclusive Focus</p>
-                        <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80">We specialize only in conceptual art assets, providing unparalleled market depth and targeted placement.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl" style="background-color: #1a1a1a; border-left: 4px solid #B8860B;">
-                        <p style="font-size: 24px; color: #B8860B;" class="font-bold mb-2">$10K+ Floor Assets</p>
-                        <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80">Our mandate requires a proven market floor of $10,000 and above, ensuring high-caliber, investment-grade conceptual works.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl" style="background-color: #1a1a1a; border-left: 4px solid #B8860B;">
-                        <p style="font-size: 24px; color: #B8860B;" class="font-bold mb-2">70/30 Consignment</p>
-                        <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80">A fully transparent model where the consignor retains 70% of the sale price. Simple, fair, and high-yield.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-12 md:py-20 px-6" style="background-color: #0d0d0d;">
-        <div class="max-w-6xl mx-auto">
-            <h3 style="font-size: 44px; color: #C0C0C0;" class="font-extrabold mb-4 text-center">Brokerage Services</h3>
-            </div>
-    </section>
-    
-    <section id="contact" class="py-12 md:py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h3 style="font-size: 44px; color: #C0C0C0;" class="font-extrabold mb-4">Inquire About Our Assets</h3>
-            <p style="font-size: 20px; color: #C0C0C0;" class="opacity-80 mb-10 max-w-2xl mx-auto">
-                Discreetly connect with our brokerage team to discuss your acquisition strategy for investment-grade conceptual art.
-            </p>
-            <a href="mailto:inquire@onpointcollective.art" style="background-color: #B8860B; font-size: 16px; color: #000000;" class="inline-block px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition-opacity">Contact Our Brokerage</a>
-        </div>
-    </section>
-
-    <footer style="background-color: #0d0d0d; border-top: 1px solid rgba(192,192,192,0.1);" class="py-6 px-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <p style="font-size: 14px; color: #C0C0C0;" class="opacity-70">&copy; 2025 On Point Collective LLC. All Rights Reserved. Specializing in Conceptual Art Assets ($10K+ Floor).</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+            <a href="consign.html" style="background-color: #B8860B; font-size: 16
