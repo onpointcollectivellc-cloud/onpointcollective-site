@@ -1,150 +1,321 @@
 <!doctype html>
 <html lang="en" class="h-full">
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conceptual Art Assets | Sourcing for High-Net-Worth Collectors</title>
+  <title>On Point Collective LLC - Where Art Meets Purpose</title>
+  <script src="/_sdk/element_sdk.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Custom Styling for Dark/Gold Theme */
-    body { 
-      background-color: #0a0a0a; 
-      color: #f5f5f5; 
-      font-family: 'Inter', sans-serif; 
+    body {
+      box-sizing: border-box;
     }
-    .text-primary-gold { color: #d4af37; }
-    .bg-surface-dark { background-color: #1a1a1a; }
-    .border-gold { border-color: #d4af37; }
-    .cta-button {
-      background-color: #d4af37;
-      color: #0a0a0a;
-      transition: background-color 0.3s;
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .cta-button:hover { background-color: #e0c25a; }
-    .font-serif-display { font-family: 'Playfair Display', serif; }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
   </style>
-</head>
-<body class="h-full">
-<div id="app-wrapper" class="w-full h-full overflow-auto">
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto">
+  <div id="app" class="w-full h-full"></div>
+  <script>
+    const defaultConfig = {
+      background_color: "#000000",
+      surface_color: "#1a1a1a",
+      text_color: "#e5e5e5",
+      primary_action: "#d4af37",
+      secondary_action: "#b8960f",
+      font_family: "Inter",
+      font_size: 16,
+      site_title: "On Point Collective LLC",
+      tagline: "Where Art Meets Purpose",
+      hero_title: "Creating Meaningful Art",
+      hero_subtitle: "Transforming spaces through collaborative creativity and thoughtful design",
+      about_title: "About Us",
+      about_text: "We are a collective of talented artists dedicated to bringing creativity and purpose to every project. Our work spans murals, installations, and custom commissions.",
+      services_title: "Our Services",
+      contact_title: "Get In Touch",
+      contact_text: "Ready to bring your vision to life? Let's collaborate on something extraordinary."
+    };
 
-  <nav class="w-full px-6 md:px-12 py-6 flex justify-between items-center bg-transparent">
-    <div class="text-2xl font-serif-display font-bold tracking-tight text-primary-gold">
-      ON POINT COLLECTIVE LLC
-    </div>
-    <div class="flex gap-8 items-center">
-      <a href="#gallery" class="hidden md:inline-block text-sm font-medium hover:text-primary-gold transition-colors">Assets</a>
-      <a href="#process" class="hidden md:inline-block text-sm font-medium hover:text-primary-gold transition-colors">Process</a>
-      <a href="#inquiry" class="px-6 py-2 text-sm font-medium border-2 border-gold text-primary-gold hover:bg-surface-dark transition-colors">Inquire</a>
-    </div>
-  </nav>
+    const services = [
+      {
+        icon: "🎨",
+        title: "Mural Art",
+        description: "Large-scale murals that transform spaces and tell compelling stories"
+      },
+      {
+        icon: "🖼️",
+        title: "Custom Commissions",
+        description: "Personalized artwork tailored to your vision and space"
+      },
+      {
+        icon: "✨",
+        title: "Art Installations",
+        description: "Immersive installations that captivate and inspire audiences"
+      },
+      {
+        icon: "🤝",
+        title: "Collaborative Projects",
+        description: "Working together with communities to create meaningful art"
+      }
+    ];
 
-  <header class="w-full px-6 md:px-12 py-20 md:py-32 text-center">
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif-display font-bold mb-6 leading-tight">
-      Sourcing Conceptual Art Assets<br> for High-Net-Worth Collectors
-    </h1>
-    <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto opacity-80">
-      Specialized creative brokerage focused on assets with a $10K+ floor and our 70/30 Consignment Model.
-    </p>
-    <a href="#inquiry" class="px-10 py-4 text-lg font-medium cta-button rounded-md transition-all">Begin Sourcing Mandate</a>
-  </header>
+    async function onConfigChange(config) {
+      const app = document.getElementById('app');
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'system-ui, -apple-system, sans-serif';
+      const baseSize = config.font_size || defaultConfig.font_size;
+      
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryAction = config.primary_action || defaultConfig.primary_action;
+      const secondaryAction = config.secondary_action || defaultConfig.secondary_action;
 
-  <section id="gallery" class="w-full px-6 md:px-12 py-20 md:py-32 bg-surface-dark">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl md:text-5xl font-serif-display font-bold text-center mb-16 text-primary-gold">Curated Assets (Sample Portfolio)</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-4 rounded-lg border-2 border-primary-gold/30 hover:border-gold transition-all">
-          <div class="h-64 bg-gray-800 rounded-md mb-4 flex items-center justify-center text-gray-500">Conceptual Abstraction I</div>
-          <h3 class="text-xl font-serif-display font-bold mb-1">Conceptual Asset (Floor $50K)</h3>
-          <p class="text-sm opacity-70">Sourced contemporary mixed media piece. Fully authenticated.</p>
-        </div>
-        <div class="p-4 rounded-lg border-2 border-primary-gold/30 hover:border-gold transition-all">
-          <div class="h-64 bg-gray-800 rounded-md mb-4 flex items-center justify-center text-gray-500">Minimalist Sculpture II</div>
-          <h3 class="text-xl font-serif-display font-bold mb-1">Minimalist Sculpture (Floor $25K)</h3>
-          <p class="text-sm opacity-70">Private placement, exclusive access via broker network.</p>
-        </div>
-        <div class="p-4 rounded-lg border-2 border-primary-gold/30 hover:border-gold transition-all">
-          <div class="h-64 bg-gray-800 rounded-md mb-4 flex items-center justify-center text-gray-500">Abstract Expressionist III</div>
-          <h3 class="text-xl font-serif-display font-bold mb-1">Expressionist Work (Floor $100K)</h3>
-          <p class="text-sm opacity-70">Authenticated provenance, available for immediate consignment.</p>
-        </div>
-      </div>
-      <div class="text-center mt-16">
-        <a href="#inquiry" class="px-8 py-3 text-lg font-medium border-2 border-gold text-primary-gold hover:bg-gold/10 rounded-md transition-colors">View Private Collection Access</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="process" class="w-full px-6 md:px-12 py-20 md:py-32">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl md:text-5xl font-serif-display font-bold text-center mb-16">The 70/30 Consignment Model</h2>
-      <div class="flex flex-col md:flex-row gap-12 text-center md:text-left">
-        <div class="md:w-1/2">
-          <p class="text-8xl font-serif-display font-bold text-primary-gold mb-4">70%</p>
-          <h3 class="text-2xl font-serif-display font-bold mb-4">To the High-Net-Worth Collector</h3>
-          <p class="opacity-80">The significant portion of the sale proceeds returns directly to you. Our model ensures maximum equity retention for your valuable conceptual assets.</p>
-        </div>
-        <div class="md:w-1/2 border-l-2 border-gold/50 md:pl-12">
-          <p class="text-8xl font-serif-display font-bold text-primary-gold mb-4">30%</p>
-          <h3 class="text-2xl font-serif-display font-bold mb-4">Our Fee: Sourcing & Logistics</h3>
-          <p class="opacity-80">Our fee covers end-to-end service: global asset sourcing, authentication, secure logistics, and placement with vetted buyers worldwide. Complete transparency guaranteed.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="inquiry" class="w-full px-6 md:px-12 py-20 md:py-32 bg-surface-dark">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-5xl font-serif-display font-bold text-center mb-6 text-primary-gold">Confidential Asset Inquiry</h2>
-      <p class="text-lg md:text-xl mb-10 opacity-80 text-center">
-        Connect with our brokerage team to discuss a private mandate for art assets with a $10K+ floor.
-      </p>
-      <form name="inquiry" method="POST" data-netlify="true" class="space-y-6 max-w-lg mx-auto text-left">
-        <div class="space-y-4">
-          <label for="name" class="block text-sm font-medium">Full Name / Entity</label>
-          <input type="text" name="name" id="name" required class="w-full px-4 py-3 border-2 border-primary-gold/30 focus:border-gold block rounded-md bg-transparent text-white" placeholder="High-Net-Worth Collector or Trust Name">
-          <label for="email" class="block text-sm font-medium">Email Address</label>
-          <input type="email" name="email" id="email" required class="w-full px-4 py-3 border-2 border-primary-gold/30 focus:border-gold block rounded-md bg-transparent text-white" placeholder="inquiry@onpointcollective.com">
-        </div>
-        <label for="message" class="block text-sm font-medium">Specific Asset Interest / Budget</label>
-        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border-2 border-primary-gold/30 focus:border-gold block rounded-md bg-transparent text-white" placeholder="Seeking abstract conceptual asset with a floor of $50K+..."></textarea>
-        <button type="submit" class="w-full px-10 py-4 text-lg font-medium cta-button rounded-md transition-all">Submit Confidential Inquiry</button>
-      </form>
-    </div>
-  </section>
-
-  <footer id="footer" class="w-full px-6 md:px-12 py-12 border-t-2 border-primary-gold/20">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-        <div>
-          <div class="text-2xl font-serif-display font-bold mb-4 text-primary-gold">
-            ON POINT COLLECTIVE LLC
+      app.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      app.style.backgroundColor = backgroundColor;
+      app.style.color = textColor;
+      
+      app.innerHTML = `
+        <!-- Navigation -->
+        <nav style="background-color: ${surfaceColor}; border-bottom: 1px solid rgba(255,255,255,0.1);" class="sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+          <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h1 style="font-size: ${baseSize * 1.5}px; color: ${textColor};" class="font-bold">${config.site_title || defaultConfig.site_title}</h1>
+                <p style="font-size: ${baseSize * 0.85}px; color: ${textColor};" class="opacity-70 mt-1">${config.tagline || defaultConfig.tagline}</p>
+              </div>
+              <div class="flex gap-8">
+                <a href="#about" class="nav-link" style="font-size: ${baseSize}px; color: ${textColor};">About</a>
+                <a href="#services" class="nav-link" style="font-size: ${baseSize}px; color: ${textColor};">Services</a>
+                <a href="#contact" class="nav-link" style="font-size: ${baseSize}px; color: ${textColor};">Contact</a>
+              </div>
+            </div>
           </div>
-          <p class="opacity-70 leading-relaxed">Specialized creative brokerage focused on sourcing conceptual art assets for discerning collectors worldwide.</p>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2 opacity-70">
-            <li><a href="#gallery" class="hover:text-primary-gold transition-colors">Asset Portfolio</a></li>
-            <li><a href="#process" class="hover:text-primary-gold transition-colors">Our 70/30 Process</a></li>
-            <li><a href="#inquiry" class="hover:text-primary-gold transition-colors">Start Mandate</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4">Contact</h4>
-          <ul class="space-y-2 opacity-70">
-            <li>onpointcollectivellc@gmail.com</li>
-            <li>+1 (908) 878-3316</li>
-            <li>New York | Charlotte  </li>
-          </ul>
-        </div>
-      </div>
-      <div class="pt-8 border-t-2 border-primary-gold/20 text-center opacity-60">
-        <p>© 2025 On Point Collective LLC. All rights reserved. Minimum asset floor $10K+.</p>
-      </div>
-    </div>
-  </footer>
+        </nav>
 
-</div>
-</body>
+        <!-- Hero Section -->
+        <section class="py-24 px-6" style="background: linear-gradient(135deg, ${backgroundColor} 0%, ${surfaceColor} 100%);">
+          <div class="max-w-4xl mx-auto text-center fade-in-up">
+            <h2 style="font-size: ${baseSize * 3}px; color: ${textColor};" class="font-bold mb-6 leading-tight">
+              ${config.hero_title || defaultConfig.hero_title}
+            </h2>
+            <p style="font-size: ${baseSize * 1.25}px; color: ${textColor};" class="opacity-80 mb-10 max-w-2xl mx-auto">
+              ${config.hero_subtitle || defaultConfig.hero_subtitle}
+            </p>
+            <a href="#contact" style="background-color: ${primaryAction}; font-size: ${baseSize}px; color: ${textColor};" class="inline-block px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity">
+              Start Your Project
+            </a>
+          </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-6">
+          <div class="max-w-4xl mx-auto">
+            <h3 style="font-size: ${baseSize * 2.5}px; color: ${textColor};" class="font-bold mb-8 text-center">
+              ${config.about_title || defaultConfig.about_title}
+            </h3>
+            <p style="font-size: ${baseSize * 1.125}px; color: ${textColor}; background-color: ${surfaceColor};" class="opacity-90 leading-relaxed p-8 rounded-2xl">
+              ${config.about_text || defaultConfig.about_text}
+            </p>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 px-6" style="background-color: ${surfaceColor};">
+          <div class="max-w-6xl mx-auto">
+            <h3 style="font-size: ${baseSize * 2.5}px; color: ${textColor};" class="font-bold mb-12 text-center">
+              ${config.services_title || defaultConfig.services_title}
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              ${services.map(service => `
+                <div class="service-card p-6 rounded-xl" style="background-color: ${backgroundColor}; border: 1px solid rgba(255,255,255,0.1);">
+                  <div style="font-size: ${baseSize * 2.5}px;" class="mb-4">${service.icon}</div>
+                  <h4 style="font-size: ${baseSize * 1.25}px; color: ${textColor};" class="font-semibold mb-3">
+                    ${service.title}
+                  </h4>
+                  <p style="font-size: ${baseSize * 0.95}px; color: ${textColor};" class="opacity-70">
+                    ${service.description}
+                  </p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-6">
+          <div class="max-w-2xl mx-auto text-center">
+            <h3 style="font-size: ${baseSize * 2.5}px; color: ${textColor};" class="font-bold mb-6">
+              ${config.contact_title || defaultConfig.contact_title}
+            </h3>
+            <p style="font-size: ${baseSize * 1.125}px; color: ${textColor};" class="opacity-80 mb-10">
+              ${config.contact_text || defaultConfig.contact_text}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="mailto:info@onpointcollectivellc.art" style="background-color: ${primaryAction}; font-size: ${baseSize}px; color: ${textColor};" class="px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity">
+                Send Email
+              </a>
+              <a href="tel:+1234567890" style="background-color: ${secondaryAction}; font-size: ${baseSize}px; color: ${textColor};" class="px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity">
+                Call Us
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 px-6 text-center" style="background-color: ${surfaceColor}; border-top: 1px solid rgba(255,255,255,0.1);">
+          <p style="font-size: ${baseSize * 0.9}px; color: ${textColor};" class="opacity-60">
+            © ${new Date().getFullYear()} ${config.site_title || defaultConfig.site_title}. All rights reserved.
+          </p>
+        </footer>
+      `;
+
+      // Add smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // Add nav link hover effects
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.style.setProperty('--hover-color', primaryAction);
+        link.addEventListener('mouseenter', () => {
+          link.style.color = primaryAction;
+        });
+        link.addEventListener('mouseleave', () => {
+          link.style.color = textColor;
+        });
+        const after = document.createElement('style');
+        after.textContent = `.nav-link::after { background-color: ${primaryAction}; }`;
+        document.head.appendChild(after);
+      });
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action || defaultConfig.primary_action,
+            set: (value) => {
+              config.primary_action = value;
+              window.elementSdk.setConfig({ primary_action: value });
+            }
+          },
+          {
+            get: () => config.secondary_action || defaultConfig.secondary_action,
+            set: (value) => {
+              config.secondary_action = value;
+              window.elementSdk.setConfig({ secondary_action: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["site_title", config.site_title || defaultConfig.site_title],
+        ["tagline", config.tagline || defaultConfig.tagline],
+        ["hero_title", config.hero_title || defaultConfig.hero_title],
+        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+        ["about_title", config.about_title || defaultConfig.about_title],
+        ["about_text", config.about_text || defaultConfig.about_text],
+        ["services_title", config.services_title || defaultConfig.services_title],
+        ["contact_title", config.contact_title || defaultConfig.contact_title],
+        ["contact_text", config.contact_text || defaultConfig.contact_text]
+      ]);
+    }
+
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange,
+      mapToCapabilities,
+      mapToEditPanelValues
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ad9887dd4c67cfc',t:'MTc2NTY3MTYwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
