@@ -1,130 +1,149 @@
 <!doctype html>
 <html lang="en" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conceptual Art Assets | Sourcing for High-Net-Worth Collectors</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <style>
-        body {
-            box-sizing: border-box;
-        }
-        
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .font-sans {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .gradient-border {
-            position: relative;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-        }
-        
-        .gradient-border::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-        }
-        
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(212, 175, 55, 0.2);
-        }
-        
-        .split-section {
-            display: grid;
-            grid-template-columns: 70% 30%;
-            gap: 0;
-        }
-        
-        @media (max-width: 768px) {
-            .split-section {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
-  <style>@view-transition { navigation: auto; }</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conceptual Art Assets | Sourcing for High-Net-Worth Collectors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom Styling for Dark/Gold Theme */
+    body { 
+      background-color: #0a0a0a; 
+      color: #f5f5f5; 
+      font-family: 'Inter', sans-serif; 
+    }
+    .text-primary-gold { color: #d4af37; }
+    .bg-surface-dark { background-color: #1a1a1a; }
+    .border-gold { border-color: #d4af37; }
+    .cta-button {
+      background-color: #d4af37;
+      color: #0a0a0a;
+      transition: background-color 0.3s;
+    }
+    .cta-button:hover { background-color: #e0c25a; }
+    .font-serif-display { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+<body class="h-full">
+<div id="app-wrapper" class="w-full h-full overflow-auto">
 
- </head>
- <body class="h-full font-sans">
-  <div id="app-wrapper" class="w-full h-full overflow-auto">
-   <nav id="nav" class="w-full px-6 md:px-12 py-6 flex justify-between items-center">
-    <div id="logo" class="text-2xl font-serif font-bold tracking-tight">
-     ON POINT COLLECTIVE LLC
-    </div>
-        <div class="flex gap-8 items-center">
-      <a href="#services" class="hidden md:inline-block text-sm font-medium hover:opacity-70 transition-opacity">About</a> 
-      <a href="#consignment-model" class="hidden md:inline-block text-sm font-medium hover:opacity-70 transition-opacity">Process</a> 
-      <a href="#cta-section" id="nav-cta" class="px-6 py-2 text-sm font-medium border-2 hover:opacity-80 transition-opacity">Contact</a>
-    </div>
-   </nav>
-   <header class="w-full px-6 md:px-12 py-20 md:py-32 text-center fade-in">
-    <h1 id="hero-title" class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-tight">Sourcing Conceptual Art Assets<br> for High-Net-Worth Collectors</h1>
-    <p id="hero-subtitle" class="text-lg md:text-xl mb-12 max-w-2xl mx-auto opacity-80">Specialized creative brokerage focused on assets with a $20K+ floor and 70/30 Consignment Model.</p><button id="cta-primary" class="px-10 py-4 text-lg font-medium hover-lift transition-all">Begin Sourcing Mandate</button>
-   </header>
-   <section id="consignment-model" class="w-full my-20 md:my-32">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-     <h2 id="consignment-section-title" class="text-3xl md:text-5xl font-serif font-bold text-center mb-16">Our Partnership Model</h2>
-     <div class="split-section rounded-lg overflow-hidden shadow-2xl">
-      <div id="section-70" class="p-12 md:p-16 flex flex-col justify-center">
-       <div class="mb-8">
-        <div class="text-6xl md:text-8xl font-serif font-bold mb-4">
-         70%
-        </div>
-        <h3 class="text-2xl md:text-3xl font-serif font-bold mb-6">To You, The Collector</h3>
-       </div>
-       <p id="consignment-description" class="text-base md:text-lg mb-6 leading-relaxed opacity-90">Upon successful sale, 70% of the proceeds return directly to you. We believe in transparent, collector-first relationships that honor your investment and trust.</p>
-       <ul class="space-y-3">
-        <li class="flex items-start gap-3">
-         <svg class="w-6 h-6 mt-1 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-         </svg><span>Immediate payment upon sale completion</span></li>
-        <li class="flex items-start gap-3">
-         <svg class="w-6 h-6 mt-1 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-         </svg><span>Full transparency in pricing and negotiations</span></li>
-        <li class="flex items-start gap-3">
-         <svg class="w-6 h-6 mt-1 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-         </svg><span>Detailed sale documentation and provenance</span></li>
-       </ul>
-      </div>      <div id="section-30" class="p-12 md:p-16 flex flex-col justify-center border-l-2">
-       <div class="mb-8">
-        <div class="text-6xl md:text-8xl font-serif font-bold mb-4">
-         30%
-        </div>
-        <h3 class="text-2xl md:text-3xl font-serif font-bold mb-6">Our Expertise</h3>
-       </div>
-       <p class="text-base md:text-lg mb-6 leading-relaxed opacity-90">Our commission covers comprehensive services from sourcing to final sale, ensuring every transaction meets the highest standards.</p>
+  <nav class="w-full px-6 md:px-12 py-6 flex justify-between items-center bg-transparent">
+    <div class="text-2xl font-serif-display font-bold tracking-tight text-primary-gold">
+      ON POINT COLLECTIVE LLC
+    </div>
+    <div class="flex gap-8 items-center">
+      <a href="#gallery" class="hidden md:inline-block text-sm font-medium hover:text-primary-gold transition-colors">Assets</a>
+      <a href="#process" class="hidden md:inline-block text-sm font-medium hover:text-primary-gold transition-colors">Process</a>
+      <a href="#inquiry" class="px-6 py-2 text-sm font-medium border-2 border-gold text-primary-gold hover:bg-surface-dark transition-colors">Inquire</a>
+    </div>
+  </nav>
+
+  <header class="w-full px-6 md:px-12 py-20 md:py-32 text-center">
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif-display font-bold mb-6 leading-tight">
+      Sourcing Conceptual Art Assets<br> for High-Net-Worth Collectors
+    </h1>
+    <p class="text-lg md:text-xl mb-12 max-w-2xl mx-auto opacity-80">
+      Specialized creative brokerage focused on assets with a $20K+ floor and our 70/30 Consignment Model.
+    </p>
+    <a href="#inquiry" class="px-10 py-4 text-lg font-medium cta-button rounded-md transition-all">Begin Sourcing Mandate</a>
+  </header>
+
+  <section id="gallery" class="w-full px-6 md:px-12 py-20 md:py-32 bg-surface-dark">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-serif-display font-bold text-center mb-16 text-primary-gold">Curated Assets (Sample Portfolio)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-4 rounded-lg border-2 border-primary-gold/30 hover:border-gold transition-all">
+          <div class="h-64 bg-gray-800 rounded-md mb-4 flex items-center justify-center text-gray-500">Conceptual Abstraction I</div>
+          <h3 class="text-xl font-serif-display font-bold mb-1">Conceptual Asset (Floor $50K)</h3>
+          <p class="text-sm opacity-70">Sourced contemporary mixed media piece. Fully authenticated.</p>
+        </div>
+        <div class="p-4 rounded-lg border-2 border-primary-gold/30 hover:border-gold transition-all">
+          <div class="h-64 bg-gray-800 rounded-md mb-4 flex items-center justify-center text-gray-500">Minimalist Sculpture II</div>
+          <h3 class="text-xl font-serif-display font-bold mb-1">Minimalist Sculpture (Floor $25K)</h3>
+          <p class="text-sm opacity-70">Private placement, exclusive access via broker network.</p>
+        </div>
+        <div class="p-4 rounded-lg border-2 border-primary-gold/30 hover:border-gold transition-all">
+          <div class="h-64 bg-gray-800 rounded-md mb-4 flex items-center justify-center text-gray-500">Abstract Expressionist III</div>
+          <h3 class="text-xl font-serif-display font-bold mb-1">Expressionist Work (Floor $100K)</h3>
+          <p class="text-sm opacity-70">Authenticated provenance, available for immediate consignment.</p>
+        </div>
+      </div>
+      <div class="text-center mt-16">
+        <a href="#inquiry" class="px-8 py-3 text-lg font-medium border-2 border-gold text-primary-gold hover:bg-gold/10 rounded-md transition-colors">View Private Collection Access</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="w-full px-6 md:px-12 py-20 md:py-32">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-serif-display font-bold text-center mb-16">The 70/30 Consignment Model</h2>
+      <div class="flex flex-col md:flex-row gap-12 text-center md:text-left">
+        <div class="md:w-1/2">
+          <p class="text-8xl font-serif-display font-bold text-primary-gold mb-4">70%</p>
+          <h3 class="text-2xl font-serif-display font-bold mb-4">To the High-Net-Worth Collector</h3>
+          <p class="opacity-80">The significant portion of the sale proceeds returns directly to you. Our model ensures maximum equity retention for your valuable conceptual assets.</p>
+        </div>
+        <div class="md:w-1/2 border-l-2 border-gold/50 md:pl-12">
+          <p class="text-8xl font-serif-display font-bold text-primary-gold mb-4">30%</p>
+          <h3 class="text-2xl font-serif-display font-bold mb-4">Our Fee: Sourcing & Logistics</h3>
+          <p class="opacity-80">Our fee covers end-to-end service: global asset sourcing, authentication, secure logistics, and placement with vetted buyers worldwide. Complete transparency guaranteed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inquiry" class="w-full px-6 md:px-12 py-20 md:py-32 bg-surface-dark">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-serif-display font-bold text-center mb-6 text-primary-gold">Confidential Asset Inquiry</h2>
+      <p class="text-lg md:text-xl mb-10 opacity-80 text-center">
+        Connect with our brokerage team to discuss a private mandate for art assets with a $20K+ floor.
+      </p>
+      <form name="inquiry" method="POST" data-netlify="true" class="space-y-6 max-w-lg mx-auto text-left">
+        <div class="space-y-4">
+          <label for="name" class="block text-sm font-medium">Full Name / Entity</label>
+          <input type="text" name="name" id="name" required class="w-full px-4 py-3 border-2 border-primary-gold/30 focus:border-gold block rounded-md bg-transparent text-white" placeholder="High-Net-Worth Collector or Trust Name">
+          <label for="email" class="block text-sm font-medium">Email Address</label>
+          <input type="email" name="email" id="email" required class="w-full px-4 py-3 border-2 border-primary-gold/30 focus:border-gold block rounded-md bg-transparent text-white" placeholder="inquiry@onpointcollective.com">
+        </div>
+        <label for="message" class="block text-sm font-medium">Specific Asset Interest / Budget</label>
+        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border-2 border-primary-gold/30 focus:border-gold block rounded-md bg-transparent text-white" placeholder="Seeking abstract conceptual asset with a floor of $50K+..."></textarea>
+        <button type="submit" class="w-full px-10 py-4 text-lg font-medium cta-button rounded-md transition-all">Submit Confidential Inquiry</button>
+      </form>
+    </div>
+  </section>
+
+  <footer id="footer" class="w-full px-6 md:px-12 py-12 border-t-2 border-primary-gold/20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div>
+          <div class="text-2xl font-serif-display font-bold mb-4 text-primary-gold">
+            ON POINT COLLECTIVE LLC
+          </div>
+          <p class="opacity-70 leading-relaxed">Specialized creative brokerage focused on sourcing conceptual art assets for discerning collectors worldwide.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 opacity-70">
+            <li><a href="#gallery" class="hover:text-primary-gold transition-colors">Asset Portfolio</a></li>
+            <li><a href="#process" class="hover:text-primary-gold transition-colors">Our 70/30 Process</a></li>
+            <li><a href="#inquiry" class="hover:text-primary-gold transition-colors">Start Mandate</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 opacity-70">
+            <li>onpointcollectivellc@gmail.com</li>
+            <li>+1 (908) 878-3316</li>
+            <li>New York | Charlotte | </li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t-2 border-primary-gold/20 text-center opacity-60">
+        <p>© 2025 On Point Collective LLC. All rights reserved. Minimum asset floor $20K+.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
