@@ -202,7 +202,7 @@ label {
       </div>
      </a>
      
-     <div class="flex gap-8 items-center"><a href="#about" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Firm Profile</a> <a href="#services" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Brokerage Services</a> <a href="#forms" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Asset Forms</a> <a href="mailto:ONPOINTCOLLECTIVELLC@GMAIL.COM" class="nav-link" style="font-size: 16px; color: #B8860B; font-weight: 600;">Inquire: ONPOINTCOLLECTIVELLC@GMAIL.COM</a>
+     <div class="flex gap-8 items-center"><a href="#about" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Firm Profile</a> <a href="#services" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Brokerage Services</a> <a href="mailto:ONPOINTCOLLECTIVELLC@GMAIL.COM" class="nav-link" style="font-size: 16px; color: #B8860B; font-weight: 600;">Inquire: ONPOINTCOLLECTIVELLC@GMAIL.COM</a>
      </div>
     </div>
    </div>
@@ -210,121 +210,8 @@ label {
   <section class="py-16 md:py-24 px-6 hero-bg" style="background: linear-gradient(135deg, #000000 0%, #0d0d0d 100%);">
    <div class="max-w-4xl mx-auto text-center">
     <h2 id="hero-heading" style="font-size: 48px; color: #B8860B;" class="font-extrabold mb-6 leading-tight hide-on-load fade-in-up">Sourcing Conceptual Assets with Provenance.</h2>
-    <p style="font-size: 20px; color: #C0C0C0;" class="mb-8 leading-relaxed hide-on-load fade-in-up">Connecting High-Net-Worth Collectors with Exclusive Works. Floor Value $10K+.</p><a href="#forms" style="background-color: #B8860B; color: #000000; font-size: 16px;" class="inline-block px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition hide-on-load fade-in-up">Submit Asset Information</a>
+    <p style="font-size: 20px; color: #C0C0C0;" class="mb-8 leading-relaxed hide-on-load fade-in-up">Connecting High-Net-Worth Collectors with Exclusive Works. Floor Value $10K+.</p><a href="#contact" style="background-color: #B8860B; color: #000000; font-size: 16px;" class="inline-block px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition hide-on-load fade-in-up">Initiate Inquiry</a>
    </div>
-  </section>
-  
-  <section id="forms" class="py-16 px-6" style="background-color: #0d0d0d;">
-    <div class="max-w-5xl mx-auto">
-      <h3 style="font-size: 36px; color: #B8860B;" class="font-bold mb-4 text-center">Asset Intake & Consignment Forms</h3>
-      <p style="font-size: 16px; color: #C0C0C0;" class="text-center mb-12 opacity-80">Please utilize the appropriate form below to initiate the process for high-value conceptual art assets ($10,000+ floor).</p>
-      
-      <div class="form-container p-8 rounded-lg mb-16">
-        <h3 class="text-3xl font-bold mb-8 form-section-title">Exclusive Client Intake Form</h3>
-        <form id="exclusive-client-intake-form" action="/secure-submission/exclusive-intake" method="POST">
-          <div class="section">
-            <h4 class="text-xl font-bold form-section-title">Client Information</h4>
-            <label>Full Name:</label><input type="text" name="full_name" required>
-            <label>Address:</label><input type="text" name="address">
-            <label>Email Address:</label><input type="email" name="email">
-            <label>Phone Number:</label><input type="tel" name="phone">
-          </div>
-
-          <div class="section mt-8">
-            <h4 class="text-xl font-bold form-section-title">Asset Details (Conceptual Art)</h4>
-            <label>Title:</label><input type="text" name="title">
-            <label>Artist/Maker:</label><input type="text" name="artist">
-            <label>Year of Creation:</label><input type="text" name="year">
-            <label>Medium:</label><input type="text" name="medium">
-            <label>Dimensions:</label><input type="text" name="dimensions">
-            <label>Weight (if applicable):</label><input type="text" name="weight">
-            <label>Provenance (Previous Owners/Exhibitions):</label><textarea name="provenance"></textarea>
-            <label>Acquisition Date/Source:</label><input type="text" name="acquisition_source" placeholder="e.g., Year Acquired, Source: Gallery / Auction / Direct from Artist / Private Sale">
-            <label>Current Location of Asset:</label><input type="text" name="location" placeholder="City, State, Country">
-            <label>Physical Condition:</label>
-            <select name="condition">
-              <option value="excellent">Excellent</option>
-              <option value="good">Good, minor wear</option>
-              <option value="requires_conservation">Requires conservation</option>
-            </select>
-          </div>
-
-          <div class="section mt-8">
-            <h4 class="text-xl font-bold form-section-title">Financial Strategy & Investment Mandate</h4>
-            <label>Target Liquidity Price (Desired Sale Price):</label><input type="text" name="desired_price" placeholder="e.g., $25,000">
-            <label>Contractual Floor Value (Minimum Acceptable Price):</label><input type="text" name="min_price" placeholder="Must be $10,000 or greater" required>
-            <label>Associated Financial Liabilities (Outstanding Loans or Liens):</label><textarea name="loans_liens" placeholder="If none, please write 'None'"></textarea>
-          </div>
-
-          <div class="section mt-8">
-            <h4 class="text-xl font-bold form-section-title">Consignment Logistics & Marketing</h4>
-            <label>Exclusive Listing Status (Required for Brokerage):</label>
-            <select name="exclusive_listing" required>
-              <option value="">Select Option</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-            <label>If No, please explain where else it is listed:</label><textarea name="other_listings"></textarea>
-            <label>Professional Photography Available?</label>
-            <select name="photography">
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-            </select>
-            <label>Consignor's Reason for Sale (Internal Use Only):</label><textarea name="reason_for_sale"></textarea>
-          </div>
-
-          <div class="section mt-8">
-            <h4 class="text-xl font-bold form-section-title">Brokerage Agreement Acknowledgment</h4>
-            <p class="mb-4" style="color: #B8860B;">I acknowledge and agree to the **70/30 Consignment Model** for the sale of this asset with On Point Collective LLC.</p>
-            <label>Date:</label><input type="date" name="date" required>
-            <label>Additional Information:</label><textarea name="additional_info"></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn w-full">Submit Exclusive Client Intake</button>
-        </form>
-      </div>
-
-      <div class="form-container p-8 rounded-lg">
-        <h3 class="text-3xl font-bold mb-8 form-section-title">Asset Consignment Intake Form</h3>
-        <form id="asset-consignment-intake-form" action="/secure-submission/asset-intake" method="POST">
-          <div class="section">
-            <h4 class="text-xl font-bold form-section-title">Consignor Information</h4>
-            <label>Firm/Organization (if applicable):</label><input type="text" name="firm">
-            <label>Full Name:</label><input type="text" name="full_name" required>
-            <label>Phone Number:</label><input type="tel" name="phone">
-            <label>Email:</label><input type="email" name="email">
-            <label>Primary City/Region:</label><input type="text" name="city_region">
-          </div>
-
-          <div class="section mt-8">
-            <h4 class="text-xl font-bold form-section-title">Asset Details</h4>
-            <label>Artist Name/Collective:</label><input type="text" name="artist_name">
-            <label>Artwork Title:</label><input type="text" name="artwork_title">
-            <label>Medium/Materials:</label><input type="text" name="medium_materials">
-            <label>Year of Creation:</label><input type="text" name="year_creation">
-            <label>Consignor's Asking Price (Minimum $10,000):</label><input type="number" name="asking_price" min="10000" placeholder="Minimum $10000" required>
-            <label>Provenance Status:</label>
-            <div class="radio-group mt-2 mb-4">
-              <label><input type="radio" name="provenance_status" value="documented" class="mr-1"> Documented</label>
-              <label><input type="radio" name="provenance_status" value="partially_documented" class="mr-1"> Partially Documented</label>
-              <label><input type="radio" name="provenance_status" value="unknown" class="mr-1"> Unknown</label>
-            </div>
-            <label>Additional Notes:</label><textarea name="notes"></textarea>
-            <label>Signature (Type Full Name):</label><input type="text" name="signature" required>
-            <label>Date:</label><input type="date" name="date" required>
-          </div>
-
-          <button type="submit" class="submit-btn w-full">Submit Asset Consignment Intake</button>
-        </form>
-      </div>
-      
-      <blockquote class="mt-12 p-4 rounded-lg" style="background-color: rgba(184, 134, 11, 0.05); border-left: 4px solid #B8860B;">
-        <p class="text-base font-semibold" style="color: #B8860B;">IMPORTANT: Developer Note for Secure Submission</p>
-        <p class="text-sm mt-2" style="color: #C0C0C0;">The forms above are configured with placeholder actions (`action="/secure-submission/..."`) and are ready for **secure, server-side integration**. This is crucial to prevent the "Information not secure" warning and maintain confidentiality for high-value asset data.</p>
-        <p class="text-sm mt-1" style="color: #C0C0C0;">A backend script (e.g., PHP, Node.js) must be created to receive the POST data from these actions and securely handle email notification and data storage. **The website must also be served over HTTPS.**</p>
-      </blockquote>
-      
-    </div>
   </section>
   
   <section id="about" class="py-16 px-6">
