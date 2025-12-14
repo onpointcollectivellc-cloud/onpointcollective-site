@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en" class="h-full">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>On Point Collective LLC - Specialized Conceptual Art Brokerage</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>On Point Collective LLC - Specialized Conceptual Art Brokerage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
         /* CSS Reset for consistent browser spacing */
         body {
             box-sizing: border-box;
@@ -64,7 +65,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: #B8860B; /* Deep Gold/Bronze Accent */
+            background-color: #B8860B;
             transition: width 0.3s ease;
         }
         
@@ -79,177 +80,311 @@
         
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(184, 134, 11, 0.4); /* Gold Glow */
+            box-shadow: 0 10px 20px rgba(184, 134, 11, 0.4);
+        }
+
+        /* File Upload Styles */
+        .file-upload-zone {
+            border: 2px dashed rgba(184, 134, 11, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .file-upload-zone:hover {
+            border-color: #B8860B;
+            background-color: rgba(184, 134, 11, 0.05);
+        }
+
+        .file-upload-zone.drag-over {
+            border-color: #B8860B;
+            background-color: rgba(184, 134, 11, 0.1);
+            transform: scale(1.02);
+        }
+
+        .file-item {
+            transition: all 0.3s ease;
+        }
+
+        .file-item:hover {
+            background-color: rgba(184, 134, 11, 0.1);
+        }
+
+        .remove-file-btn {
+            transition: all 0.2s ease;
+        }
+
+        .remove-file-btn:hover {
+            background-color: rgba(184, 134, 11, 0.2);
+            transform: scale(1.1);
         }
     </style>
-    <style>@view-transition { navigation: auto; }</style>
-    </head>
-<body class="h-full overflow-auto" style="background-color: #000000; color: #C0C0C0; font-family: Inter, system-ui, -apple-system, sans-serif;">
-    
-    <nav style="background-color: #0d0d0d; border-bottom: 1px solid rgba(192,192,192,0.1);" class="sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
+  <style>@view-transition { navigation: auto; }</style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto" style="background-color: #000000; color: #C0C0C0; font-family: Inter, system-ui, -apple-system, sans-serif;">
+  <nav style="background-color: #0d0d0d; border-bottom: 1px solid rgba(192,192,192,0.1);" class="sticky top-0 z-50">
+   <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+     <div>
+      <h1 id="company-name" style="font-size: 24px; color: #C0C0C0;" class="font-bold">On Point Collective LLC</h1>
+      <p id="tagline" style="font-size: 13.6px; color: #B8860B;" class="opacity-90 mt-1">Investment-Grade Conceptual Art Brokerage</p>
+     </div>
+     <div class="flex gap-8"><a href="#about" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Firm Profile</a> <a href="#services" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Brokerage Services</a> <a href="#upload" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Submit Files</a> <a href="#contact" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Inquire</a>
+     </div>
+    </div>
+   </div>
+  </nav>
+  <section class="py-16 md:py-24 px-6 hero-bg" style="background: linear-gradient(135deg, #000000 0%, #0d0d0d 100%);">
+   <div class="max-w-4xl mx-auto text-center">
+    <h2 id="hero-heading" style="font-size: 48px; color: #B8860B;" class="font-extrabold mb-6 leading-tight hide-on-load fade-in-up">Sourcing Conceptual Assets with Provenance.</h2>
+    <p style="font-size: 20px; color: #C0C0C0;" class="mb-8 leading-relaxed hide-on-load fade-in-up">Curated investment opportunities in authenticated contemporary conceptual works.</p><a href="#upload" style="background-color: #B8860B; color: #000000; font-size: 16px;" class="inline-block px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition hide-on-load fade-in-up">Submit Portfolio</a>
+   </div>
+  </section>
+  <section id="upload" class="py-16 px-6" style="background-color: #0d0d0d;">
+   <div class="max-w-4xl mx-auto">
+    <h3 style="font-size: 36px; color: #B8860B;" class="font-bold mb-4 text-center">Portfolio Submission</h3>
+    <p style="font-size: 16px; color: #C0C0C0;" class="text-center mb-12 opacity-80">Upload artwork documentation, provenance certificates, or appraisal reports</p>
+    <div class="file-upload-zone rounded-lg p-12 text-center mb-8" id="dropZone">
+     <svg class="mx-auto mb-4" width="64" height="64" viewbox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path> <polyline points="17 8 12 3 7 8"></polyline> <line x1="12" y1="3" x2="12" y2="15"></line>
+     </svg>
+     <p style="font-size: 20px; color: #C0C0C0;" class="mb-2 font-semibold">Drop files here or click to browse</p>
+     <p style="font-size: 14px; color: #C0C0C0;" class="opacity-60">PDF, JPG, PNG up to 25MB each</p><input type="file" id="fileInput" class="hidden" multiple accept=".pdf,.jpg,.jpeg,.png">
+    </div>
+    <div id="fileList" class="space-y-3"></div>
+    <div id="successMessage" class="hidden mt-8 p-6 rounded-lg text-center" style="background-color: rgba(184, 134, 11, 0.1); border: 1px solid #B8860B;">
+     <p style="font-size: 18px; color: #B8860B;" class="font-semibold">Files ready for submission</p>
+     <p style="font-size: 14px; color: #C0C0C0;" class="mt-2 opacity-80">Your portfolio materials have been prepared. A representative will review within 48 hours.</p>
+    </div>
+   </div>
+  </section>
+  <section id="about" class="py-16 px-6">
+   <div class="max-w-4xl mx-auto">
+    <h3 style="font-size: 36px; color: #B8860B;" class="font-bold mb-6 text-center hide-on-load">Firm Profile</h3>
+    <p style="font-size: 18px; color: #C0C0C0;" class="leading-relaxed text-center hide-on-load">On Point Collective LLC specializes in the acquisition and placement of museum-quality conceptual artworks. Our expertise spans authentication, provenance verification, and strategic portfolio development for discerning collectors and institutions.</p>
+   </div>
+  </section>
+  <section id="services" class="py-16 px-6" style="background-color: #0d0d0d;">
+   <div class="max-w-6xl mx-auto">
+    <h3 style="font-size: 36px; color: #B8860B;" class="font-bold mb-12 text-center hide-on-load">Brokerage Services</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+     <div class="service-card p-8 rounded-lg" style="background-color: #1a1a1a; border: 1px solid rgba(192,192,192,0.1);">
+      <h4 style="font-size: 24px; color: #B8860B;" class="font-bold mb-4">Authentication</h4>
+      <p style="font-size: 16px; color: #C0C0C0;">Comprehensive provenance research and forensic analysis ensuring institutional-grade authentication.</p>
+     </div>
+     <div class="service-card p-8 rounded-lg" style="background-color: #1a1a1a; border: 1px solid rgba(192,192,192,0.1);">
+      <h4 style="font-size: 24px; color: #B8860B;" class="font-bold mb-4">Acquisition</h4>
+      <p style="font-size: 16px; color: #C0C0C0;">Discreet sourcing of blue-chip contemporary works through our global network of galleries and collectors.</p>
+     </div>
+     <div class="service-card p-8 rounded-lg" style="background-color: #1a1a1a; border: 1px solid rgba(192,192,192,0.1);">
+      <h4 style="font-size: 24px; color: #B8860B;" class="font-bold mb-4">Advisory</h4>
+      <p style="font-size: 16px; color: #C0C0C0;">Strategic collection management and market analysis for optimized portfolio performance.</p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section id="contact" class="py-16 px-6">
+   <div class="max-w-2xl mx-auto text-center">
+    <h3 style="font-size: 36px; color: #B8860B;" class="font-bold mb-6 hide-on-load">Inquire</h3>
+    <p style="font-size: 18px; color: #C0C0C0;" class="mb-8 hide-on-load">For confidential consultation regarding acquisition opportunities or portfolio assessment.</p><a href="mailto:inquiries@onpointcollective.art" style="background-color: #B8860B; color: #000000; font-size: 16px;" class="inline-block px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition hide-on-load">Contact Our Team</a>
+   </div>
+  </section>
+  <footer class="py-8 px-6 text-center" style="background-color: #0d0d0d; border-top: 1px solid rgba(192,192,192,0.1);">
+   <p style="font-size: 14px; color: #C0C0C0;" class="opacity-60">© 2024 On Point Collective LLC. All rights reserved.</p>
+  </footer>
+  <script>
+        const defaultConfig = {
+            company_name: "On Point Collective LLC",
+            tagline: "Investment-Grade Conceptual Art Brokerage",
+            hero_heading: "Sourcing Conceptual Assets with Provenance."
+        };
+
+        const config = window.elementSdk?.config || defaultConfig;
+
+        async function onConfigChange(newConfig) {
+            const companyName = newConfig.company_name || defaultConfig.company_name;
+            const tagline = newConfig.tagline || defaultConfig.tagline;
+            const heroHeading = newConfig.hero_heading || defaultConfig.hero_heading;
+
+            document.getElementById('company-name').textContent = companyName;
+            document.getElementById('tagline').textContent = tagline;
+            document.getElementById('hero-heading').textContent = heroHeading;
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || "#000000",
+                            set: (value) => {
+                                config.background_color = value;
+                                window.elementSdk.setConfig({ background_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.accent_color || "#B8860B",
+                            set: (value) => {
+                                config.accent_color = value;
+                                window.elementSdk.setConfig({ accent_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || "#C0C0C0",
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: undefined,
+                    fontSizeable: undefined
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["company_name", config.company_name || defaultConfig.company_name],
+                    ["tagline", config.tagline || defaultConfig.tagline],
+                    ["hero_heading", config.hero_heading || defaultConfig.hero_heading]
+                ])
+            });
+        }
+
+        // File Upload Logic
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const fileList = document.getElementById('fileList');
+        const successMessage = document.getElementById('successMessage');
+        let uploadedFiles = [];
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('drag-over');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('drag-over');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFiles(e.target.files);
+        });
+
+        function handleFiles(files) {
+            const maxSize = 25 * 1024 * 1024; // 25MB
+            const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+
+            Array.from(files).forEach(file => {
+                if (!allowedTypes.includes(file.type)) {
+                    showMessage(`${file.name} is not a supported file type`, 'error');
+                    return;
+                }
+                if (file.size > maxSize) {
+                    showMessage(`${file.name} exceeds 25MB size limit`, 'error');
+                    return;
+                }
+                
+                uploadedFiles.push(file);
+                addFileToList(file);
+            });
+
+            if (uploadedFiles.length > 0) {
+                successMessage.classList.remove('hidden');
+            }
+        }
+
+        function addFileToList(file) {
+            const fileItem = document.createElement('div');
+            fileItem.className = 'file-item flex items-center justify-between p-4 rounded-lg';
+            fileItem.style.backgroundColor = '#1a1a1a';
+            fileItem.style.border = '1px solid rgba(192,192,192,0.1)';
+
+            const fileInfo = document.createElement('div');
+            fileInfo.className = 'flex items-center gap-4';
+            
+            const icon = getFileIcon(file.type);
+            fileInfo.innerHTML = `
+                ${icon}
                 <div>
-                    <h1 style="font-size: 24px; color: #C0C0C0;" class="font-bold">On Point Collective LLC</h1>
-                    <p style="font-size: 13.6px; color: #B8860B;" class="opacity-90 mt-1">Investment-Grade Conceptual Art Brokerage</p>
+                    <p style="font-size: 16px; color: #C0C0C0;" class="font-semibold">${file.name}</p>
+                    <p style="font-size: 14px; color: #C0C0C0;" class="opacity-60">${formatFileSize(file.size)}</p>
                 </div>
-                <div class="flex gap-8">
-                    <a href="#about" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Firm Profile</a> 
-                    <a href="#services" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Brokerage Services</a> 
-                    <a href="#contact" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Inquire</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
-    <section class="py-16 md:py-24 px-6 hero-bg" style="background: linear-gradient(135deg, #000000 0%, #0d0d0d 100%);">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 style="font-size: 48px; color: #B8860B;" class="font-extrabold mb-6 leading-tight hide-on-load fade-in-up">Sourcing Conceptual Assets with Provenance.</h2>
-            <p style="font-size: 20px; color: #C0C0C0;" class="opacity-80 mb-10 max-w-2xl mx-auto hide-on-load fade-in-up" style="animation-delay: 0.2s;">Connecting High-Net-Worth Collectors with Exclusive Works. Floor Value $10K+.</p>
-            <a href="#services" style="background-color: #B8860B; font-size: 16px; color: #000000;" class="inline-block px-8 py-4 rounded-full font-semibold hover:bg-opacity-90 transition-opacity hide-on-load fade-in-up" style="animation-delay: 0.4s;"> Explore Consignment </a>
-        </div>
-    </section>
+            `;
 
-    <section id="about" class="py-16 md:py-24 px-6 hide-on-load">
-        <div class="max-w-6xl mx-auto">
-            <h3 style="font-size: 44px; color: #C0C0C0;" class="font-extrabold mb-4 text-center">Our Firm Profile: The Brokerage Advantage</h3>
-            <p style="font-size: 20px; color: #C0C0C0;" class="opacity-80 mb-16 text-center max-w-3xl mx-auto">
-                We are dedicated to elevating conceptual art acquisition to the level of strategic wealth management. Our model is built on confidentiality, rigorous due diligence, and market-leading expertise.
-            </p>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="md:col-span-2 space-y-6">
-                    <p style="font-size: 18px; color: #C0C0C0; background-color: #0d0d0d;" class="opacity-90 leading-relaxed p-8 rounded-2xl border border-gray-800">
-                        On Point Collective LLC is a specialized creative brokerage firm dedicated exclusively to connecting high-net-worth collectors with museum-quality conceptual art assets. We primarily serve the NY, NJ, and PA metro regions, alongside our strategic base in Charlotte, NC.
-                        <br><br>
-                        Our expertise lies in the valuation, provenance verification, and discreet sourcing of works that serve as long-term investment vehicles. We operate as trusted, confidential advisors, facilitating high-value transactions and curating collections for investment longevity and cultural impact. Our mission is to transform art acquisition from a passion to a strategic asset class.
-                    </p>
-                    <div class="p-6 rounded-2xl flex items-center gap-4" style="background-color: #1a1a1a; border: 1px solid #B8860B;">
-                        <span style="font-size: 32px; color: #B8860B;">🏙️</span>
-                        <div>
-                            <p style="font-size: 20px; color: #B8860B;" class="font-bold">Exclusive Charlotte Sky Lounge</p>
-                            <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80">Our Dilworth-based Sky Lounge provides a private, upscale venue for asset viewing, exclusive client events, and discreet contract finalization.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-1 space-y-6">
-                    <div class="p-6 rounded-2xl service-card" style="background-color: #1a1a1a; border-left: 4px solid #B8860B;">
-                        <p style="font-size: 24px; color: #B8860B;" class="font-bold mb-2">Exclusive Focus</p>
-                        <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80">We specialize only in conceptual art assets, providing unparalleled market depth and targeted placement.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl service-card" style="background-color: #1a1a1a; border-left: 4px solid #B8860B;">
-                        <p style="font-size: 24px; color: #B8860B;" class="font-bold mb-2">$10K+ Floor Assets</p>
-                        <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80">Our mandate requires a proven market floor of **$10,000 and above**, ensuring high-caliber, investment-grade works.</p>
-                    </div>
-                    <div class="p-6 rounded-2xl service-card" style="background-color: #1a1a1a; border-left: 4px solid #B8860B;">
-                        <p style="font-size: 24px; color: #B8860B;" class="font-bold mb-2">70/30 Consignment</p>
-                        <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80">A fully transparent model where the consignor retains 70% of the sale price. Simple, fair, and high-yield.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-12 md:py-20 px-6 hide-on-load" style="background-color: #0d0d0d;">
-        <div class="max-w-6xl mx-auto">
-            <h3 style="font-size: 40px; color: #C0C0C0;" class="font-bold mb-12 text-center">Exclusive Brokerage Services</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="service-card p-8 rounded-xl" style="background-color: #000000; border: 1px solid #B8860B;">
-                    <div style="font-size: 40px;" class="mb-4 text-center">
-                        💎
-                    </div>
-                    <h4 style="font-size: 24px; color: #B8860B;" class="font-semibold mb-3 text-center">Confidential Asset Sourcing</h4>
-                    <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80 leading-relaxed">Discreet, targeted acquisition of specific conceptual art assets to fulfill unique collection mandates. We leverage a private network of consignors to source works that meet strict investment criteria.</p>
-                </div>
-                
-                <div class="service-card p-8 rounded-xl" style="background-color: #000000; border: 1px solid #B8860B;">
-                    <div style="font-size: 40px;" class="mb-4 text-center">
-                        📜
-                    </div>
-                    <h4 style="font-size: 24px; color: #B8860B;" class="font-semibold mb-3 text-center">The 70/30 Consignment Model</h4>
-                    <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80 leading-relaxed">Our core model: Consignors receive 70% of the final sale price, with On Point Collective retaining 30%. This structure covers all due diligence, specialized placement, logistics, and access to high-net-worth buyers.</p>
-                </div>
-                
-                <div class="service-card p-8 rounded-xl" style="background-color: #000000; border: 1px solid #B8860B;">
-                    <div style="font-size: 40px;" class="mb-4 text-center">
-                        📈
-                    </div>
-                    <h4 style="font-size: 24px; color: #B8860B;" class="font-semibold mb-3 text-center">Provenance & Strategic Valuation</h4>
-                    <p style="font-size: 16px; color: #C0C0C0;" class="opacity-80 leading-relaxed">Rigorous verification of artwork history, legal documentation, and expert market-driven valuation reporting to ensure every transaction is secure, transparent, and maximizes investment potential.</p>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-12 md:py-20 px-6 hide-on-load">
-        <div class="max-w-2xl mx-auto text-center">
-            <h3 style="font-size: 40px; color: #C0C0C0;" class="font-bold mb-6">Partner with Our Brokerage</h3>
-            <p style="font-size: 18px; color: #C0C0C0;" class="opacity-80 mb-10">Engage our specialized services for discreet collection management or conceptual asset placement. All inquiries are held in strict confidence.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:onpointcollectivellc@gmail.com" style="background-color: #B8860B; font-size: 16px; color: #000000;" class="px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity"> Initiate Inquiry (Email) </a> 
-                <a href="tel:+19088783316" style="background-color: #333333; font-size: 16px; color: #C0C0C0;" class="px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity"> Call Us </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-8 px-6 text-center" style="background-color: #0d0d0d; border-top: 1px solid rgba(192,192,192,0.1);">
-        <p style="font-size: 14.4px; color: #C0C0C0;" class="opacity-60">© 2025 On Point Collective LLC V2. All rights reserved. | Conceptual Asset Brokerage</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'remove-file-btn p-2 rounded-full';
+            removeBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            `;
+            removeBtn.addEventListener('click', () => {
+                uploadedFiles = uploadedFiles.filter(f => f !== file);
+                fileItem.remove();
+                if (uploadedFiles.length === 0) {
+                    successMessage.classList.add('hidden');
                 }
             });
-        });
 
-        // Nav link hover effects
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                link.style.color = '#B8860B';
-            });
-            link.addEventListener('mouseleave', () => {
-                link.style.color = '#C0C0C0';
-            });
-        });
-        
-        // --- NEW SCROLL REVEAL SCRIPT ---
-        const scrollRevealSections = document.querySelectorAll('#about, #services, #contact');
+            fileItem.appendChild(fileInfo);
+            fileItem.appendChild(removeBtn);
+            fileList.appendChild(fileItem);
+        }
 
-        const observer = new IntersectionObserver(entries => {
+        function getFileIcon(type) {
+            if (type === 'application/pdf') {
+                return `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>`;
+            }
+            return `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>`;
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        function showMessage(text, type) {
+            const message = document.createElement('div');
+            message.className = 'fixed top-24 right-6 p-4 rounded-lg shadow-lg';
+            message.style.backgroundColor = type === 'error' ? 'rgba(220, 38, 38, 0.9)' : 'rgba(184, 134, 11, 0.9)';
+            message.style.color = '#ffffff';
+            message.style.fontSize = '14px';
+            message.style.zIndex = '100';
+            message.textContent = text;
+            document.body.appendChild(message);
+            setTimeout(() => message.remove(), 3000);
+        }
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Start the animation when the element enters the viewport
-                    entry.target.classList.remove('hide-on-load');
                     entry.target.classList.add('fade-in-up');
-                    observer.unobserve(entry.target); // Stop observing after animation runs
                 }
             });
-        }, {
-            threshold: 0.1 // Trigger when 10% of the section is visible
-        });
+        }, { threshold: 0.1 });
 
-        scrollRevealSections.forEach(section => {
-            section.classList.add('hide-on-load'); // Ensure the CSS is applied
-            observer.observe(section);
-        });
-
-        // Immediately fade in the hero section elements on load
-        document.querySelectorAll('.hero-bg .hide-on-load').forEach((element, index) => {
-             element.style.animationDelay = `${index * 0.2}s`;
-             element.classList.remove('hide-on-load');
-             element.classList.add('fade-in-up');
-        });
-        // --- END NEW SCROLL REVEAL SCRIPT ---
-        
+        document.querySelectorAll('.hide-on-load').forEach(el => observer.observe(el));
     </script>
-</body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ade6cd545ce7cfc',t:'MTc2NTcyMjg5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
