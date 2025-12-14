@@ -1,10 +1,24 @@
+I understand. To resolve the ongoing caching and visual issues and ensure you have a single, clean, working file, here is the entire, complete index.html file, which is now SDK-Free for maximum stability.
+
+This version is optimized for your brokerage firm:
+
+SDK-Free: The broken script links (element_sdk.js and data_sdk.js) and the non-essential SDK initialization code have been removed to prevent the 404 errors and guarantee stability.
+
+Visual Fixes: Contains the responsive spacing fixes and the "live" aesthetic enhancements (animated hero background, scroll reveal, enhanced card hovers).
+
+Verification Tag: The "V2" tag is included in the footer to help you confirm the file is successfully loaded.
+
+Please use this to completely overwrite the content of your index.html file.
+
+The Entire, Final, SDK-Free index.html File
+HTML
+
 <!doctype html>
 <html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>On Point Collective LLC - Specialized Conceptual Art Brokerage</title>
-    <script src="/_sdk/element_sdk.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* CSS Reset for consistent browser spacing */
@@ -18,7 +32,7 @@
             height: 100%;
         }
         
-        /* Keyframe Animation for subtle, shifting background */
+        /* Keyframe Animation for subtle, shifting background (LIVE ENHANCEMENT) */
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -30,7 +44,7 @@
             animation: gradientShift 15s ease infinite;
         }
 
-        /* Keyframe Animation for fade-in effect */
+        /* Keyframe Animation for fade-in effect (LIVE ENHANCEMENT) */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -46,7 +60,7 @@
             animation: fadeInUp 0.8s ease-out forwards;
         }
 
-        /* New class to hide content for scroll reveal until JS adds .fade-in-up */
+        /* Class to hide content for scroll reveal until JS adds .fade-in-up */
         .hide-on-load {
             opacity: 0;
             transform: translateY(30px);
@@ -73,20 +87,18 @@
             width: 100%;
         }
         
-        /* Service Card Hover Effect */
+        /* Service Card Hover Effect (LIVE ENHANCEMENT) */
         .service-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        /* Enhanced hover effect */
         .service-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 20px rgba(184, 134, 11, 0.4); /* Gold Glow */
         }
     </style>
     <style>@view-transition { navigation: auto; }</style>
-    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-</head>
+    </head>
 <body class="h-full overflow-auto" style="background-color: #000000; color: #C0C0C0; font-family: Inter, system-ui, -apple-system, sans-serif;">
     
     <nav style="background-color: #0d0d0d; border-bottom: 1px solid rgba(192,192,192,0.1);" class="sticky top-0 z-50">
@@ -252,79 +264,7 @@
              element.classList.add('fade-in-up');
         });
         // --- END NEW SCROLL REVEAL SCRIPT ---
-
-        // SDK Initialization and Config (left as is from your provided code)
-        if (window.elementSdk) {
-            const defaultConfig = {
-                background_color: "#000000",
-                surface_color: "#0d0d0d",
-                text_color: "#C0C0C0",
-                primary_action: "#B8860B", // Gold
-                secondary_action: "#333333", // Dark Grey
-                font_family: "Inter",
-                font_size: 16,
-                site_title: "On Point Collective LLC",
-                tagline: "Investment-Grade Conceptual Art Brokerage",
-                hero_title: "Sourcing Conceptual Assets with Provenance.",
-                hero_subtitle: "Connecting High-Net-Worth Collectors with Exclusive Works. Floor Value $10K+.",
-                about_title: "Our Firm Profile: The Brokerage Advantage",
-                about_text: "We are dedicated to elevating conceptual art acquisition to the level of strategic wealth management. Our model is built on confidentiality, rigorous due diligence, and market-leading expertise.", 
-                services_title: "Exclusive Brokerage Services",
-                contact_title: "Partner with Our Brokerage",
-                contact_text: "Engage our specialized services for discreet collection management or conceptual asset placement. All inquiries are held in strict confidence."
-            };
-
-            async function onConfigChange(config) {
-                // Config changes will update the page dynamically
-                document.body.style.backgroundColor = config.background_color || defaultConfig.background_color;
-                document.body.style.color = config.text_color || defaultConfig.text_color;
-            }
-
-            function mapToCapabilities(config) {
-                return {
-                    recolorables: [
-                        {
-                            get: () => config.background_color || defaultConfig.background_color,
-                            set: (value) => {
-                                config.background_color = value;
-                                window.elementSdk.setConfig({ background_color: value });
-                            }
-                        },
-                        {
-                            get: () => config.surface_color || defaultConfig.surface_color,
-                            set: (value) => {
-                                config.surface_color = value;
-                                window.elementSdk.setConfig({ surface_color: value });
-                            }
-                        },
-                        {
-                            get: () => config.text_color || defaultConfig.text_color,
-                            set: (value) => {
-                                config.text_color = value;
-                                window.elementSdk.setConfig({ text_color: value });
-                            }
-                        },
-                        {
-                            get: () => config.primary_action || defaultConfig.primary_action,
-                            set: (value) => {
-                                config.primary_action = value;
-                                window.elementSdk.setConfig({ primary_action: value });
-                            }
-                        },
-                        {
-                            get: () => config.secondary_action || defaultConfig.secondary_action,
-                            set: (value) => {
-                                config.secondary_action = value;
-                                window.elementSdk.setConfig({ secondary_action: value });
-                            }
-                        }
-                    ],
-                    borderables: [
-                        // The SDK code was cut off here, but this block is complete enough for the page to function.
-                    ]
-                };
-            }
-        }
+        
     </script>
 </body>
 </html>
