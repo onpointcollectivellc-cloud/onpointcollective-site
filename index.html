@@ -201,6 +201,7 @@ label {
        <p id="tagline" style="font-size: 13.6px; color: #B8860B;" class="opacity-90 mt-1">Investment-Grade Conceptual Art Brokerage</p>
       </div>
      </a>
+     
      <div class="flex gap-8 items-center"><a href="#about" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Firm Profile</a> <a href="#services" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Brokerage Services</a> <a href="#forms" class="nav-link" style="font-size: 16px; color: #C0C0C0;">Asset Forms</a> <a href="mailto:ONPOINTCOLLECTIVELLC@GMAIL.COM" class="nav-link" style="font-size: 16px; color: #B8860B; font-weight: 600;">Inquire: ONPOINTCOLLECTIVELLC@GMAIL.COM</a>
      </div>
     </div>
@@ -220,7 +221,7 @@ label {
       
       <div class="form-container p-8 rounded-lg mb-16">
         <h3 class="text-3xl font-bold mb-8 form-section-title">Exclusive Client Intake Form</h3>
-        <form id="exclusive-client-intake-form" action="mailto:ONPOINTCOLLECTIVELLC@GMAIL.COM" method="POST" enctype="text/plain">
+        <form id="exclusive-client-intake-form" action="/secure-submission/exclusive-intake" method="POST">
           <div class="section">
             <h4 class="text-xl font-bold form-section-title">Client Information</h4>
             <label>Full Name:</label><input type="text" name="full_name" required>
@@ -285,7 +286,7 @@ label {
 
       <div class="form-container p-8 rounded-lg">
         <h3 class="text-3xl font-bold mb-8 form-section-title">Asset Consignment Intake Form</h3>
-        <form id="asset-consignment-intake-form" action="mailto:ONPOINTCOLLECTIVELLC@GMAIL.COM" method="POST" enctype="text/plain">
+        <form id="asset-consignment-intake-form" action="/secure-submission/asset-intake" method="POST">
           <div class="section">
             <h4 class="text-xl font-bold form-section-title">Consignor Information</h4>
             <label>Firm/Organization (if applicable):</label><input type="text" name="firm">
@@ -316,6 +317,12 @@ label {
           <button type="submit" class="submit-btn w-full">Submit Asset Consignment Intake</button>
         </form>
       </div>
+      
+      <blockquote class="mt-12 p-4 rounded-lg" style="background-color: rgba(184, 134, 11, 0.05); border-left: 4px solid #B8860B;">
+        <p class="text-base font-semibold" style="color: #B8860B;">IMPORTANT: Developer Note for Secure Submission</p>
+        <p class="text-sm mt-2" style="color: #C0C0C0;">The forms above are configured with placeholder actions (`action="/secure-submission/..."`) and are ready for **secure, server-side integration**. This is crucial to prevent the "Information not secure" warning and maintain confidentiality for high-value asset data.</p>
+        <p class="text-sm mt-1" style="color: #C0C0C0;">A backend script (e.g., PHP, Node.js) must be created to receive the POST data from these actions and securely handle email notification and data storage. **The website must also be served over HTTPS.**</p>
+      </blockquote>
       
     </div>
   </section>
