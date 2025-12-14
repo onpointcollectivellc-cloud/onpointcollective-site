@@ -152,7 +152,7 @@
         <h3 style="font-size: 40px; color: #C0C0C0;" class="font-bold mb-6">Partner with Our Brokerage</h3>
         <p style="font-size: 18px; color: #C0C0C0;" class="opacity-80 mb-10">Engage our specialized services for discreet collection management or conceptual asset placement. All inquiries are held in strict confidence.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="mailto:clientrelations@onpointcollectivellc.art" style="background-color: #B8860B; font-size: 16px; color: #000000;" class="px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity"> Initiate Inquiry (Email) </a> 
+          <a href="mailto:onpointcollectivellc@gmail.com" style="background-color: #B8860B; font-size: 16px; color: #000000;" class="px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity"> Initiate Inquiry (Email) </a> 
           <a href="tel:+19088783316" style="background-color: #333333; font-size: 16px; color: #C0C0C0;" class="px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity"> Call Us </a>
         </div>
       </div>
@@ -197,4 +197,97 @@
         tagline: "Investment-Grade Conceptual Art Brokerage",
         hero_title: "Sourcing Conceptual Assets with Provenance.",
         hero_subtitle: "Connecting High-Net-Worth Collectors with Exclusive Works. Floor Value $10K+.",
-        about_title: "Our
+        about_title: "Our Firm Profile: The Brokerage Advantage",
+        about_text: "We are dedicated to elevating conceptual art acquisition to the level of strategic wealth management. Our model is built on confidentiality, rigorous due diligence, and market-leading expertise.", 
+        services_title: "Exclusive Brokerage Services",
+        contact_title: "Partner with Our Brokerage",
+        contact_text: "Engage our specialized services for discreet collection management or conceptual asset placement. All inquiries are held in strict confidence."
+      };
+
+      async function onConfigChange(config) {
+        // Config changes will update the page dynamically
+        document.body.style.backgroundColor = config.background_color || defaultConfig.background_color;
+        document.body.style.color = config.text_color || defaultConfig.text_color;
+      }
+
+      function mapToCapabilities(config) {
+        return {
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => {
+                config.surface_color = value;
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.primary_action || defaultConfig.primary_action,
+              set: (value) => {
+                config.primary_action = value;
+                window.elementSdk.setConfig({ primary_action: value });
+              }
+            },
+            {
+              get: () => config.secondary_action || defaultConfig.secondary_action,
+              set: (value) => {
+                config.secondary_action = value;
+                window.elementSdk.setConfig({ secondary_action: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        };
+      }
+
+      function mapToEditPanelValues(config) {
+        return new Map([
+          ["site_title", config.site_title || defaultConfig.site_title],
+          ["tagline", config.tagline || defaultConfig.tagline],
+          ["hero_title", config.hero_title || defaultConfig.hero_title],
+          ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+          ["about_title", config.about_title || defaultConfig.about_title],
+          ["about_text", config.about_text || defaultConfig.about_text],
+          ["services_title", config.services_title || defaultConfig.services_title],
+          ["contact_title", config.contact_title || defaultConfig.contact_title],
+          ["contact_text", config.contact_text || defaultConfig.contact_text]
+        ]);
+      }
+
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ </body>
+</html>
