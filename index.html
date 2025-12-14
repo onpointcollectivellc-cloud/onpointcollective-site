@@ -5,173 +5,226 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>On Point Collective LLC | Investment-Grade Conceptual Art Brokerage</title>
   <style>
+    /* VARIABLES */
     :root {
-      --black: #0A0A0A;
-      --gray: #C0C0C0;
-      --gold: #B8860B; /* Deep Gold */
+      --black: #080808; /* Slightly darker base */
+      --dark-gray: #151515; /* For sections/background contrast */
+      --gray: #E0E0E0; /* Lighter gray for better contrast */
+      --gold: #D4AF37; /* Brighter, more defined gold for luxury accent */
       --white: #FFFFFF;
       --font-primary: 'Helvetica Neue', Arial, sans-serif;
+      --font-secondary: 'Georgia', serif; /* Introducing a secondary serif for headings */
     }
 
+    /* BASE STYLES */
     body {
       margin: 0;
       background-color: var(--black);
       color: var(--gray);
       font-family: var(--font-primary);
-      line-height: 1.6;
-      /* Smooth scrolling for internal links */
+      line-height: 1.7; /* Increased line height for readability */
       scroll-behavior: smooth; 
     }
 
+    /* HEADER / NAVIGATION */
     header {
       background-color: var(--black);
-      border-bottom: 1px solid var(--gold);
-      padding: 1.5rem 3rem;
+      border-bottom: 2px solid var(--gold); /* Thicker gold line */
+      padding: 1.5rem 5vw;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100; /* Ensure header stays on top */
+      z-index: 1000; 
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Subtle shadow for elevation */
     }
 
     header h1 {
       color: var(--gold);
-      font-weight: 600;
-      letter-spacing: 1px;
-      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px; /* More dramatic spacing */
+      font-size: 1.8rem;
       margin: 0;
+      font-family: var(--font-secondary);
+      text-transform: uppercase;
     }
 
     nav a {
       color: var(--gray);
       text-decoration: none;
-      margin-left: 2rem;
-      transition: color 0.3s ease;
+      margin-left: 2.5rem;
+      transition: color 0.4s ease, border-bottom 0.4s ease;
       text-transform: uppercase;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
     }
 
     nav a:hover {
       color: var(--gold);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 5px;
     }
 
+    /* HERO SECTION - HIGH IMPACT */
     .hero {
-      /* Subtle visual interest using dark gradients */
-      background: linear-gradient(to bottom, #050505, var(--black)); 
+      /* Placeholder for a conceptual art background image or dark texture */
+      background: url('placeholder-dark-art.jpg') no-repeat center center/cover, 
+                  linear-gradient(to bottom, var(--dark-gray), var(--black));
+      min-height: 70vh; /* Taller for presence */
       text-align: center;
-      padding: 10rem 2rem 8rem; /* Increased vertical padding for exclusivity */
-      min-height: 60vh;
+      padding: 12rem 2rem 10rem; 
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
     }
 
+    /* Overlay for text readability over background */
+    .hero::before { 
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+        z-index: 1;
+    }
+    .hero * { z-index: 2; } /* Ensure content is above overlay */
+
     .hero h2 {
-      color: var(--gold);
-      font-size: 3rem;
+      color: var(--white); /* White for highest contrast */
+      font-size: 3.8rem;
       margin-bottom: 1.5rem;
-      font-weight: 300; /* Lighter weight for a luxury feel */
+      font-weight: 200; 
+      letter-spacing: 4px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+      text-transform: uppercase;
     }
 
     .hero p {
       color: var(--gray);
-      font-size: 1.3rem;
-      max-width: 800px;
-      margin: 0 auto 2rem;
+      font-size: 1.4rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
       line-height: 1.8;
     }
     
     .cta-button {
         display: inline-block;
-        padding: 0.75rem 2rem;
-        border: 1px solid var(--gold);
+        padding: 1rem 3rem;
+        border: 2px solid var(--gold);
         color: var(--gold);
         text-decoration: none;
         text-transform: uppercase;
-        font-weight: 600;
-        transition: all 0.3s ease;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother animation curve */
     }
     
     .cta-button:hover {
         background-color: var(--gold);
         color: var(--black);
+        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2), 0 6px 6px rgba(212, 175, 55, 0.1);
+        transform: translateY(-2px);
     }
 
+    /* CONTENT SECTIONS */
     .section {
-      padding: 6rem 5rem;
-      border-top: 1px solid #1A1A1A; /* Very dark divider */
+      background-color: var(--dark-gray); /* Dark gray background for content contrast */
+      padding: 7rem 5vw;
+      border-top: 1px solid var(--dark-gray); 
       text-align: center;
+      box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+    }
+    
+    /* Alternate section style for visual flow */
+    .section:nth-child(even) {
+        background-color: var(--black);
     }
     
     .section-content {
-        max-width: 900px;
+        max-width: 1000px;
         margin: 0 auto;
         text-align: left;
     }
 
     .section h3 {
       color: var(--gold);
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       margin-bottom: 0.5rem;
-      font-weight: 400;
+      font-weight: 300;
       text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3); /* Subtle gold underline */
     }
     
     .section .subheader {
         color: var(--gray);
-        font-size: 1.1rem;
-        margin-bottom: 3rem;
+        font-size: 1.2rem;
+        margin-bottom: 4rem;
         text-align: center;
+        font-style: italic;
     }
 
     .section p {
       color: var(--gray);
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
+      font-size: 1.15rem;
+      margin-bottom: 1.75rem;
     }
     
+    /* CONTACT LIST STYLING */
     ul {
         list-style: none;
         padding: 0;
-        margin-top: 2rem;
+        margin-top: 3rem;
         text-align: center;
     }
     
     ul li {
         color: var(--gold);
-        margin-bottom: 1rem;
-        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
     }
     
     ul li span {
         color: var(--gray);
-        margin-left: 0.5rem;
+        margin-left: 0.75rem;
+        font-weight: 400;
+    }
+    
+    ul li a {
+        color: var(--gold);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    ul li a:hover {
+        color: var(--white);
+        text-decoration: underline;
     }
 
+    /* FOOTER */
     footer {
-      background-color: #0A0A0A;
-      border-top: 1px solid var(--gold);
+      background-color: var(--black);
+      border-top: 2px solid var(--gold);
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem;
       color: var(--gray);
       font-size: 0.9rem;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
 
-    footer a {
-      color: var(--gold);
-      text-decoration: none;
-      transition: color 0.3s ease;
+    /* RESPONSIVENESS */
+    @media (max-width: 900px) {
+        .hero h2 {
+            font-size: 2.5rem;
+        }
     }
-    
-    footer a:hover {
-        color: var(--white);
-    }
-    
-    /* Responsive Design */
     @media (max-width: 768px) {
         header {
             flex-direction: column;
@@ -180,23 +233,22 @@
         header h1 {
             margin-bottom: 1rem;
         }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
         nav a {
-            margin: 0 0.5rem;
+            margin: 0.5rem 0.75rem;
         }
         .hero {
             padding: 6rem 1rem 4rem;
-        }
-        .hero h2 {
-            font-size: 2rem;
-        }
-        .hero p {
-            font-size: 1rem;
         }
         .section {
             padding: 4rem 1.5rem;
         }
         .section h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
     }
   </style>
@@ -214,7 +266,7 @@
 
   <section class="hero">
     <h2>Conceptual Art as an Alternative Asset Class</h2>
-    <p>We are a specialized creative brokerage focused on sourcing investment-grade conceptual art assets with a $10K+ floor for high-net-worth collectors and institutional portfolios. We apply institutional rigor to the acquisition of culture.</p>
+    <p>We are a specialized creative brokerage focused on sourcing investment-grade conceptual art assets with a **$10K+ floor** for high-net-worth collectors and institutional portfolios. We apply institutional rigor to the acquisition of culture.</p>
     <a href="#contact" class="cta-button">Begin a Confidential Inquiry</a>
   </section>
 
@@ -223,7 +275,7 @@
     <p class="subheader">Institutional Rigor. Curatorial Precision.</p>
     <div class="section-content">
         <p>On Point Collective LLC is defined by a singular mission: to strategically position conceptual art assets within sophisticated investment portfolios. We operate strictly as an advisory and brokerage firm, ensuring unbiased sourcing and valuation analysis. Our clientele consists exclusively of UHNW collectors, family offices, and investors seeking uncorrelated, tangible assets with measurable appreciation potential.</p>
-        <p>Every asset exceeding our $10,000 floor undergoes comprehensive due diligence covering provenance, artist trajectory, and secondary market liquidity. We bridge the critical gap between artistic merit and financial prudence.</p>
+        <p>Every asset exceeding our **$10,000 floor** undergoes comprehensive due diligence covering provenance, artist trajectory, and secondary market liquidity. We bridge the critical gap between artistic merit and financial prudence.</p>
     </div>
   </section>
 
@@ -231,7 +283,7 @@
     <h3>Proprietary 70/30 Consignment Model</h3>
     <p class="subheader">Equitable Alignment Between Investor and Brokerage.</p>
     <div class="section-content">
-        <p>Our foundational 70/30 Consignment Structure is proprietary and designed to create equitable alignment with the collector. This structure ensures that both the client (70%) and On Point Collective LLC (30%) are mutually incentivized for optimal asset performance and value realization.</p>
+        <p>Our foundational **70/30 Consignment Structure** is proprietary and designed to create equitable alignment with the collector. This structure ensures that both the client (70%) and On Point Collective LLC (30%) are mutually incentivized for optimal asset performance and value realization.</p>
         <p>This transparent, performance-driven approach is a departure from traditional gallery commissions, setting a new standard for institutional-grade art transactions.</p>
     </div>
   </section>
@@ -261,4 +313,3 @@
   </footer>
 </body>
 </html>
-
